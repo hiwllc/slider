@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <main class="content">
+    <section class="slider">
+      <div class="controls">
+        <button class="prev">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+          </svg>
+        </button>
+
+        <button class="next">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+          </svg>
+        </button>
+      </div>
+
+      <article class="slider-content">
+        <section class="item" style="background-image: url('/assets/images/twice.jpg');">
+          <div>
+            <h2>Twice</h2>
+            <p>
+              Twice é um grupo feminino de K-pop conhecido por seus hits cativantes, coreografias vibrantes e alcance global.
+            </p>
+          </div>
+        </section>
+
+        <section class="item" style="background-image: url('/assets/images/aespa.jpg');">
+          <div>
+            <h2>Aespa</h2>
+            <p>
+              Aespa é um grupo feminino de K-pop da SM Entertainment que combina música futurista com avatares digitais.
+            </p>
+          </div>
+        </section>
+
+        <section class="item" style="background-image: url('/assets/images/new-jeans.jpg');">
+          <div>
+            <h2>New Jeans</h2>
+            <p>
+              New Jeans é um grupo feminino de K-pop que traz frescor e minimalismo com hits como "Attention" e "Hype Boy".
+            </p>
+          </div>
+        </section>
+
+        <section class="item" style="background-image: url('/assets/images/red-velvet.jpg');">
+          <div>
+            <h2>Red Velvet</h2>
+            <p>
+              Red Velvet é conhecido por sua versatilidade em explorar conceitos vibrantes e sofisticados, com sucessos marcantes no K-pop.
+            </p>
+          </div>
+        </section>
+
+        <section class="item" style="background-image: url('/assets/images/oh-my-girl.jpg');">
+          <div>
+            <h2>Oh My Girl</h2>
+            <p>
+              Oh My Girl encanta com músicas sonhadoras e performances cativantes, sendo destaque por sua autenticidade e charme.
+            </p>
+          </div>
+        </section>
+
+        <section class="item" style="background-image: url('/assets/images/blackpink.jpg');">
+          <div>
+            <h2>Blackpink</h2>
+            <p>
+              Blackpink é um grupo feminino de K-pop formado pela YG Entertainment em 2016, conhecido por seus hits globais e estilo poderoso.
+            </p>
+          </div>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const slider = document.querySelector('.slider-content');
+
+    const prev = document.querySelector('.prev')
+    const next = document.querySelector('.next')
+
+    function nextItem() {
+      const items = document.querySelectorAll('.item');
+      slider.appendChild(items[0])
+    }
+
+    function prevItem() {
+      const items = document.querySelectorAll('.item');
+      slider.prepend(items[items.length - 1])
+    }
+
+    next.addEventListener('click', nextItem)
+    prev.addEventListener('click', prevItem)
+
+    document.addEventListener('keydown', event => {
+      if (event.code === 'ArrowRight') {
+        nextItem()
+      }
+
+      if (event.code === 'ArrowLeft') {
+        prevItem()
+      }
+    })
+  </script>
+</body>
+</html>
